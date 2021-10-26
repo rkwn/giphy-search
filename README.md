@@ -2,6 +2,8 @@
 
 This project was bootstrapped with CRA. To run the app, run `yarn start` and navigate to `http://localhost:3000`.
 
+This project has also been deployed to [https://rk-giphy.netlify.app/](https://rk-giphy.netlify.app/).
+
 ## Tech stack
 
 - TypeScript, React, React Router, lodash.debounce, HTML, CSS
