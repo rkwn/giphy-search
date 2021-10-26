@@ -1,14 +1,5 @@
 import { GifObject } from '../api/giphy-types';
 
-// const GifCard = () => {
-//   return (
-//     <div className="gif-card">
-//       <h1>gif card</h1>
-//       <span className="gif-favorite-icon">⭐</span>
-//     </div>
-//   );
-// };
-
 interface GifCardProps {
   gif: GifObject;
 }

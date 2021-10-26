@@ -1,15 +1,6 @@
 import { GifObject } from '../api/giphy-types';
 import GifCard from './GifCard';
 
-// const GifList = () => {
-//   return (
-//     <div className="gif-list">
-//       <h1>gif lsit </h1>
-//       <GifCard />
-//     </div>
-//   );
-// };
-
 interface GifListProps {
   gifList: GifObject[];
 }

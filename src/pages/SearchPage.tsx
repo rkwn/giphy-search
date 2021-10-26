@@ -1,7 +1,6 @@
 import { useEffect, useState } from 'react';
 import GifList from '../component/GifList';
 import SearchInput from '../component/SearchInput';
-import { mockResponse } from '../__mocks__/apiResponse';
 
 const SearchPage = () => {
   const [gifList, setGifList] = useState([]);
