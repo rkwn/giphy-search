@@ -1,13 +1,13 @@
 .App {
   text-align: center;
-  border: 1px dotted yellow;
+  /* border: 1px dotted yellow; */
   background-color: #282c34;
   min-height: 100vh;
   color: white;
 }
 
 .navbar {
-  border: 2px solid orange;
+  /* border: 2px solid orange; */
   display: flex;
   justify-content: center;
 }
@@ -15,9 +15,10 @@
 .navbar-link {
   text-decoration: none;
   color: white;
-  padding: 1em;
+  padding: 0.5em 1em;
   margin: 3px;
-  font-size: 1.3em;
+  border-bottom: 3px solid #000000;
+  font-size: 1.5em;
   font-weight: bold;
   letter-spacing: 1px;
 }

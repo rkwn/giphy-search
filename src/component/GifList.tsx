@@ -7,10 +7,9 @@ interface GifListProps {
 const GifList = ({ gifList }: GifListProps) => {
   return (
     <div className="gif-list">
-      {gifList.length &&
-        gifList.map((gif) => {
-          return <GifCard gif={gif} />;
-        })}
+      {gifList.map((gif) => {
+        return <GifCard gif={gif} key={gif.id} />;
+      })}
     </div>
   );
 };

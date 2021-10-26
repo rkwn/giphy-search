@@ -7,7 +7,6 @@ const FavoritesPage = () => {
   const { favorites } = useContext(FavoritesContext);
   return (
     <main className="saved-page">
-      <h1>Saved</h1>
       <GifList gifList={favorites} />
     </main>
   );
