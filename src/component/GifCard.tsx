@@ -1,11 +1,13 @@
 import { useContext } from 'react';
+import { FavoritesContext } from '../context/FavoritesContext';
 import { GifObject } from '../api/giphy-types';
 import starRegular from '../assets/star-regular.svg';
 import starSolid from '../assets/star-solid.svg';
-import { FavoritesContext } from '../context/FavoritesContext';
+
 interface GifCardProps {
   gif: GifObject;
 }
+
 const GifCard = ({ gif }: GifCardProps) => {
   const { favorites, setFavorites } = useContext(FavoritesContext);
 

@@ -1,14 +1,15 @@
 import { useEffect, useState } from 'react';
+
 import { searchGiphyURL } from '../api/giphy-api';
+import useFetch from '../hooks/useFetch';
 import { GifObject } from '../api/giphy-types';
 import GifList from '../component/GifList';
 import SearchInput from '../component/SearchInput';
-import useFetch from '../hooks/useFetch';
 
 const SearchPage = () => {
-  const [searchQuery, setSearchQuery] = useState('');
+  const [searchQuery, setSearchQuery] = useState<string>('');
   const [gifList, setGifList] = useState<GifObject[]>([]);
-  const [offset, setOffset] = useState(0);
+  const [offset, setOffset] = useState<number>(0);
   const limit = 25;
   const params = { q: searchQuery, offset: offset, limit: limit };
   const { response, isLoading, error } = useFetch(searchGiphyURL(params));

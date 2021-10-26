@@ -1,3 +1,29 @@
+# Giphy Search
+
+This project was bootstrapped with CRA. To run the app, run `yarn start` and navigate to `http://localhost:3000`.
+
+## Tech stack
+
+- TypeScript, React, React Router, lodash.debounce, HTML, CSS
+- React Hooks and Context API for state management
+
+## Notes/features
+
+- Chose `fixed_width_downsized` image following guidelines for [rendition best practices](https://developers.giphy.com/docs/optional-settings#rendition-guide) in Giphy API documentation
+- Abstracted Giphy API querying logic into a separate file in `/api` for better extensibility
+- Custom `useFetch` hook to abstract loading state, error handling, and promise resolution
+- Context API is used to store a list of saved gifs
+- localStorage is used to persist state in browser
+- An API key has been hardcoded for convenience
+
+## If I had more time
+
+- Reorganize, modularize, and improve styling
+- Improve pagination or implement infinite scrolling
+- Add more tests
+
+---
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
