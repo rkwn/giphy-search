@@ -4,7 +4,7 @@ import { BrowserRouter, Redirect, Route, Switch } from 'react-router-dom';
 import './App.css';
 import NavBar from './component/NavBar';
 import SearchPage from './pages/SearchPage';
-import SavedPage from './pages/SavedPage';
+import FavoritesPage from './pages/FavoritesPage';
 
 function App() {
   return (
@@ -19,7 +19,7 @@ function App() {
             <SearchPage />
           </Route>
           <Route path="/saved">
-            <SavedPage />
+            <FavoritesPage />
           </Route>
         </Switch>
       </BrowserRouter>
