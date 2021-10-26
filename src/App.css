@@ -1,38 +1,79 @@
 .App {
   text-align: center;
-}
-
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
+  border: 1px dotted yellow;
   background-color: #282c34;
   min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
   color: white;
 }
 
-.App-link {
-  color: #61dafb;
+.navbar {
+  border: 2px solid orange;
+  display: flex;
+  justify-content: center;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.nav-link {
+  text-decoration: none;
+  color: white;
+  padding: 1em;
+  margin: 3px;
+  font-size: 1.3em;
+  font-weight: bold;
+  letter-spacing: 1px;
+}
+
+.search-input {
+  background-color: #171b25;
+  border: 2px solid #758582;
+  padding: 0.5rem 1rem;
+  border-radius: 3px;
+  font-size: 1.5rem;
+  color: white;
+  margin: 1rem;
+}
+
+.search-input:focus {
+  outline: 0;
+}
+
+.gif-list {
+  padding: 10px 0;
+  columns: 250px 3;
+  column-gap: 15px;
+  max-width: 85vw;
+  margin: 0 auto;
+  display: block;
+  column-fill: balance;
+}
+
+.gif-card {
+  min-width: calc(100% - 4px);
+  margin: 5px;
+  display: inline-block;
+  position: relative;
+  overflow: hidden;
+}
+.gif-card:hover .gif-info {
+  transform: translateY(0);
+}
+.gif-img {
+  width: 100%;
+}
+
+.gif-info {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.5);
+  color: white;
+  padding: 0.5rem;
+  transform: translateY(100%);
+  transition: transform 0.2s ease-in;
+}
+
+.gif-favorite-icon {
+  position: absolute;
+  left: 6px;
+  top: 6px;
 }
