@@ -6,7 +6,7 @@ interface SearchInputProps {
 }
 const SearchInput = ({ setSearchQuery }: SearchInputProps) => {
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    setSearchQuery(encodeURIComponent(e.target.value));
+    setSearchQuery(e.target.value);
   };
   const debouncedHandleChange = useCallback(_debounce(handleChange, 600), []); // eslint-disable-line react-hooks/exhaustive-deps
 

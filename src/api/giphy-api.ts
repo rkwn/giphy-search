@@ -8,29 +8,13 @@ const generateGiphyURL = (path: string, params = {}) => {
   return `${BASE_API_URL}${path}?${queryString}`;
 };
 
-export const searchGiphyURL = (
-  params = {
-    q: '',
-    offset: 0,
-    limit: 25,
-  }
-) => {
-  return generateGiphyURL('/search', params);
-};
-
-export interface SearchGiphyParams {
+type GiphySearchParams = {
   q: string;
-  offset: number;
-  limit: number;
-}
-
-export const searchGiphy = (params: SearchGiphyParams) => {
-  if (params) {
-    const { q } = params;
-    if (q) {
-      const url = generateGiphyURL('/search', params);
-      return fetch(url);
-    }
-  }
-  throw new Error('No query provided');
+  offset?: number;
+  limit?: number;
+};
+export const searchGiphyURL = (params: GiphySearchParams) => {
+  if (params.q === '') return;
+  params.q = encodeURIComponent(params.q);
+  return generateGiphyURL('/search', params);
 };
