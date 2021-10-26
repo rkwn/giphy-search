@@ -2,7 +2,7 @@ import _debounce from 'lodash.debounce';
 import { useCallback } from 'react';
 
 interface SearchInputProps {
-  setSearchQuery: React.Dispatch<React.SetStateAction<string>>;
+  setSearchQuery: React.Dispatch<React.SetStateAction<string>>; //?
 }
 const SearchInput = ({ setSearchQuery }: SearchInputProps) => {
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
