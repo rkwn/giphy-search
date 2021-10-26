@@ -4,6 +4,8 @@ import { GifObject } from '../api/giphy-types';
 interface FavoritesContextInterface {
   favorites: GifObject[];
   setFavorites: React.Dispatch<React.SetStateAction<GifObject[]>>;
+  isFavorite: (id: string) => boolean;
+  toggleFavorite: (gif: GifObject) => void;
 }
 
 export const FavoritesContext = createContext<FavoritesContextInterface>(
@@ -31,12 +33,25 @@ export const FavoritesContextProvider = ({
     getFavoritesFromLocalStorage()
   );
 
+  const isFavorite = (id: string): boolean =>
+    favorites.some((favorite) => favorite.id === id);
+
+  const toggleFavorite = (gif: GifObject) => {
+    if (!isFavorite(gif.id)) {
+      setFavorites([...favorites, { ...gif }]);
+    } else {
+      setFavorites([...favorites].filter((favorite) => favorite.id !== gif.id));
+    }
+  };
+
   useEffect(() => {
     storeFavoritesInLocalStorage(favorites);
   }, [favorites]);
 
   return (
-    <FavoritesContext.Provider value={{ favorites, setFavorites }}>
+    <FavoritesContext.Provider
+      value={{ favorites, setFavorites, isFavorite, toggleFavorite }}
+    >
       {children}
     </FavoritesContext.Provider>
   );

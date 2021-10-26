@@ -6,35 +6,29 @@ import starSolid from '../assets/star-solid.svg';
 
 interface GifCardProps {
   gif: GifObject;
+  isFavorite: boolean;
 }
 
-const GifCard = ({ gif }: GifCardProps) => {
-  const { favorites, setFavorites } = useContext(FavoritesContext);
-
-  const isFavorite = favorites?.some((favorite) => favorite.id === gif.id);
-
-  const toggleFavorite = (gif: GifObject) => {
-    if (!isFavorite) {
-      setFavorites([...favorites, gif]);
-    } else {
-      setFavorites([...favorites].filter((favorite) => favorite.id !== gif.id));
-    }
-  };
+const GifCard = ({ gif, isFavorite }: GifCardProps) => {
+  const { toggleFavorite } = useContext(FavoritesContext);
+  const {
+    id,
+    title,
+    images: {
+      fixed_width_downsampled: { url },
+    },
+  } = gif;
 
   return (
-    <div className="gif-card" key={gif.id}>
-      <img
-        className="gif-img"
-        src={gif.images.fixed_width_downsampled.url}
-        alt="gif"
-      />
+    <div className="gif-card" key={id}>
+      <img className="gif-img" src={url} alt="gif" />
       <img
         className="gif-favorite-icon"
         src={isFavorite ? starSolid : starRegular}
         alt={'favorite icon'}
         onClick={() => toggleFavorite(gif)}
       />
-      <div className="gif-info">{gif.title}</div>
+      <div className="gif-info">{title}</div>
     </div>
   );
 };
