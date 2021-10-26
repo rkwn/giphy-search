@@ -53,9 +53,11 @@
   position: relative;
   overflow: hidden;
 }
+
 .gif-card:hover .gif-info {
   transform: translateY(0);
 }
+
 .gif-img {
   width: 100%;
 }

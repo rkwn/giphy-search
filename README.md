@@ -12,6 +12,7 @@ This project was bootstrapped with CRA. To run the app, run `yarn start` and nav
 - Chose `fixed_width_downsized` image following guidelines for [rendition best practices](https://developers.giphy.com/docs/optional-settings#rendition-guide) in Giphy API documentation
 - Abstracted Giphy API querying logic into a separate file in `/api` for better extensibility
 - Custom `useFetch` hook to abstract loading state, error handling, and promise resolution
+- `AbortController` used to cancel fetch requests
 - Context API is used to store a list of saved gifs
 - localStorage is used to persist state in browser
 - An API key has been hardcoded for convenience

@@ -17,12 +17,10 @@ const useFetch = <R extends any = any>(url: string) => {
           throw new Error(`Error! ${response.status}`);
         }
         const data = await response.json();
-        console.log('useFetch ran...', data);
-        // console.log(data);
         setResponse(data);
       } catch (error: any) {
         if (error.name === 'AbortError') {
-          console.error('Request cancelled');
+          console.log('Request cancelled');
           return;
         }
         setError(error);
