@@ -1,13 +1,24 @@
 import { useContext } from 'react';
 import { GifObject } from '../api/giphy-types';
 import starRegular from '../assets/star-regular.svg';
+import starSolid from '../assets/star-solid.svg';
 import { FavoritesContext } from '../context/FavoritesContext';
 interface GifCardProps {
   gif: GifObject;
 }
 const GifCard = ({ gif }: GifCardProps) => {
   const { favorites, setFavorites } = useContext(FavoritesContext);
-  console.log('fav', favorites);
+
+  const isFavorite = favorites.some((favorite) => favorite.id === gif.id);
+
+  const toggleFavorite = (gif: GifObject) => {
+    if (!isFavorite) {
+      setFavorites([...favorites, gif]);
+    } else {
+      setFavorites([...favorites].filter((favorite) => favorite.id !== gif.id));
+    }
+  };
+
   return (
     <div className="gif-card" key={gif.id}>
       <img
@@ -17,9 +28,9 @@ const GifCard = ({ gif }: GifCardProps) => {
       />
       <img
         className="gif-favorite-icon"
-        src={starRegular}
+        src={isFavorite ? starSolid : starRegular}
         alt={'favorite icon'}
-        onClick={() => console.log('click')}
+        onClick={() => toggleFavorite(gif)}
       />
       <div className="gif-info">{gif.title}</div>
     </div>
