@@ -10,14 +10,22 @@ interface GifListProps {
 
 const GifList = ({ gifList }: GifListProps) => {
   const { isFavorite } = useContext(FavoritesContext);
+  const gifIds = new Set();
 
   return (
     <div className="gif-list">
-      {gifList.map((gif) => {
-        return (
-          <GifCard gif={gif} key={gif.id} isFavorite={isFavorite(gif.id)} />
-        );
-      })}
+      {gifList
+        .filter((gif) => {
+          // filter out duplicates returned from API
+          if (gifIds.has(gif.id)) return false;
+          gifIds.add(gif.id);
+          return true;
+        })
+        .map((gif) => {
+          return (
+            <GifCard gif={gif} key={gif.id} isFavorite={isFavorite(gif.id)} />
+          );
+        })}
     </div>
   );
 };
