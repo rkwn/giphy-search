@@ -6,11 +6,9 @@ const useFetch = <R extends any = any>(url: string) => {
   const [error, setError] = useState<Error | unknown>();
 
   useEffect(() => {
-    // if (!url) return;
-    setIsLoading(true);
-
     const controller = new AbortController();
     const signal = controller.signal;
+    setIsLoading(true);
 
     (async () => {
       try {
@@ -23,7 +21,10 @@ const useFetch = <R extends any = any>(url: string) => {
         // console.log(data);
         setResponse(data);
       } catch (error: any) {
-        if (error.name === 'AbortError') console.error('Request cancelled');
+        if (error.name === 'AbortError') {
+          console.error('Request cancelled');
+          return;
+        }
         setError(error);
       } finally {
         setIsLoading(false);

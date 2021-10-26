@@ -9,7 +9,7 @@ interface GifCardProps {
 const GifCard = ({ gif }: GifCardProps) => {
   const { favorites, setFavorites } = useContext(FavoritesContext);
 
-  const isFavorite = favorites.some((favorite) => favorite.id === gif.id);
+  const isFavorite = favorites?.some((favorite) => favorite.id === gif.id);
 
   const toggleFavorite = (gif: GifObject) => {
     if (!isFavorite) {

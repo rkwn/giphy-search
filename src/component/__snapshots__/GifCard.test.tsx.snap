@@ -1,0 +1,3 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<GifCard /> GifCard renders correctly 1`] = `"<div><div class=\\"gif-card\\"><img class=\\"gif-img\\" src=\\"https://media1.giphy.com/media/cT9lVgPI3ql8AtRDPi/200w_d.gif?cid=deb8dc92vt0avs6j1guyld2ix8fkaq8dnongc93omrbcsw9x&amp;rid=200w_d.gif&amp;ct=g\\" alt=\\"gif\\"><img class=\\"gif-favorite-icon\\" src=\\"star-regular.svg\\" alt=\\"favorite icon\\"><div class=\\"gif-info\\">Atlanta Braves Win GIF by MLB</div></div></div>"`;
